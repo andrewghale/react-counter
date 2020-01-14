@@ -14,7 +14,9 @@ const App = () => {
   }
 
   const handleDecrement = () => {
-    setCount(count - 1);
+    if (count >= 1) {
+      setCount(count - 1);
+    }
   }
 
   const handleReset = () => {
@@ -23,15 +25,11 @@ const App = () => {
 
   return (
     <div className="App">
-
-      <ButtonAdd buttonFunction={handleIncrement} />
-      {/* <button onClick={handleIncrement}>+</button> */}
-
-      <ButtonSubtract buttonFunction={handleDecrement} />
-      {/* <button onClick={handleDecrement}>-</button> */}
-
-      <ButtonReset buttonFunction={handleReset} />
-
+      <div className="buttons">
+        <ButtonAdd buttonFunction={handleIncrement} />
+        <ButtonSubtract buttonFunction={handleDecrement} />
+        <ButtonReset count={count} buttonFunction={handleReset} />
+      </div>
       <DisplayCount count={count} />
     </div>
   );

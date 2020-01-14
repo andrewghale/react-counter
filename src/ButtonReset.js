@@ -3,7 +3,7 @@ import React from 'react';
 const ButtonReset = (props) => {
     return (
         <div>
-            <button onClick={props.buttonFunction}>
+            <button className={props.count <= 0 ? 'red-bg' : 'white-bg'} onClick={props.buttonFunction}>
                 Reset
             </button>
         </div>
